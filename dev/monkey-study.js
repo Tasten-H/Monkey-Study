@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         脚本学习
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  try to take over the world!
+// @author       Tasten_H
+// @match        https://www.baidu.com
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=cnblogs.com
+// @grant        none
+// ==/UserScript==
+
 // 快速创建复杂 HTML 结构
 function createHTML() {
     // 获取百度首页 logo 
@@ -9,7 +20,6 @@ function createHTML() {
     example.innerHTML = `<div class="h1">标题</div>
                             <p class="des">这是一段描述</p>`
     logo.appendChild(example)
-
 }
 
 (function () {
