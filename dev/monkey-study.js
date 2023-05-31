@@ -6,7 +6,7 @@
 // @author       Tasten_H
 // @match        https://www.baidu.com
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=cnblogs.com
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 // 快速创建复杂 HTML 结构
@@ -20,6 +20,26 @@ function createHTML() {
     example.innerHTML = `<div class="h1">标题</div>
                             <p class="des">这是一段描述</p>`
     logo.appendChild(example)
+}
+
+// 添加 css 样式
+function addStyle() {
+    let css = `
+    .wrap{
+        padding: 5px
+    }
+    
+    .h1{
+        font-size: 16px;
+        color: green;
+    }
+    
+    .des{
+        font-size: 10px;
+    }
+    `
+
+    GM_addStyle(css)
 }
 
 (function () {
