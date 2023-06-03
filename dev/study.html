@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class my {
+        static request = function (params) {
+            return new Promise(resolve => {
+                GM_xmlhttpRequest({
+                    method: params.method,
+                    url: params.url,
+                    headers: {
+                        "Content-Type": params.contentType
+                    },
+                    data: params.data,
+                    onload: function (res) {
+                        try {
+                            resolve(JSON.parse(res.responseText))
+                        } catch (e) {
+                            resolve([])
+                        }
+                    },
+                    onerror: function (e) {
+                        resolve([])
+                    }
+                })
+            })
+        }
+    }
+
+    my.request({
+        url: 'https://www.baidu.com',
+        method: 'GET',
+        data: null,
+        contentType: 'application/x-www-form-urlencoded;charset=utf-8'
+    }).then((res)=>{
+        console.log(res)
+    })
+
+</script>
+
+</html>
